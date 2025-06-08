@@ -1,0 +1,24 @@
+# Ignore the original large dataset
+Data/creditcard.csv
+
+# Ignore the SQLite database
+paysim.db
+
+# Ignore the full processed dataset with Step
+paysim_with_step.csv
+
+# Ignore virtual environment files
+.venv/
+__pycache__/
+
+# Ignore Python temporary files
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
