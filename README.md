@@ -6,7 +6,7 @@ The main goal of this project is to analyse transaction data to identify pattern
 It includes:
  - Data extraction and transformation using **SQL** 
  - Conducted detailed data exploration and preprocessing using Python in a Jupyter Notebook.
- - Creation of insightful interactive dashboard to present key findings and support decision-making
+ - Created an insightful interactive Tableau dashboard to present key findings and support decision-making
 
 ## Dataset
 
