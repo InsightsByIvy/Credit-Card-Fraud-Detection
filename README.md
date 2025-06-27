@@ -5,10 +5,12 @@
 ## Table of Contents
 - [Project Overview](#overview)
 - [Dataset](#dataset)
+- [Project Structure](#project_structure)
 - [Dashboard Preview](#dashboard-preview)
 - [Methodology](#methodology)
 - [Findings](#findings)
 - [How to Use](#how-to-use)
+- [References](#references)
 
 ## Overview
 
@@ -39,6 +41,14 @@ Key components of the project:
     - `fraud_by_hour.csv`: Hourly fraud counts.
     - `amount_by_fraud.csv`: Average amounts by class.
     - `top_fraud_days.csv`: High-fraud days with amounts.
+
+
+## Project Structure
+
+- `Notebooks/01_creditcard_fraud_preprocessing.ipynb`: Data cleaning, feature engineering, and preprocessing. Outputs a processed dataset for modeling.
+- `Notebooks/02_machine_learning.ipynb`: Exploratory data analysis, model building, evaluation, and visualisation.
+- `Data/`: Contains raw and processed datasets.
+
 
 ## Dashboard Preview
 ![Dashboard](Image/dashboard1.png)
@@ -84,6 +94,12 @@ Visualisation:
 2. Install required Python packages (see requirements.txt).
 3. Run the Jupyter notebook in Notebook/machine_learning.ipynb to reproduce the analysis and model.
 4. Use the exported creditcard_with_predictions.csv for further visualisation in Tableau or other BI tools.
+
+## References
+ * [scikit-learn documentation](https://scikit-learn.org/stable/modules/compose.html)
+ * [Step-by-step pipeline tutorial](https://towardsdatascience.com/step-by-step-tutorial-of-sci-kit-learn-pipeline-62402d5629b6/)
+ * Code Institute bootcamp
+ * Variety of AI tools for debugging
 
 <br>
 
