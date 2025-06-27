@@ -5,9 +5,14 @@
 ## Table of Contents
 - [Project Overview](#overview)
 - [Dataset](#dataset)
+- [Project Workflow](#project_workflow)
 - [Project Structure](#project_structure)
-- [Dashboard Preview](#dashboard-preview)
 - [Methodology](#methodology)
+  - [1. Data Cleaning](#1-data-cleaning)
+  - [2. Exploratory Data Analysis (EDA)](#2-exploratory-data-analysis-eda)
+  - [3. Machine Learning Approach](#3-machine-learning-approach)
+  - [4. Visualisation](#4-visualisation)
+- [Dashboard Preview](#dashboard-preview)
 - [Findings](#findings)
 - [How to Use](#how-to-use)
 - [References](#references)
@@ -42,6 +47,23 @@ Key components of the project:
     - `amount_by_fraud.csv`: Average amounts by class.
     - `top_fraud_days.csv`: High-fraud days with amounts.
 
+## Project Workflow
+The project starts by loading a subset of credit card transactions into an SQLite database for easy querying. Example SQL queries used to analyse the data include:
+```sql
+-- Count of fraudulent transactions by hour of the day
+SELECT CAST((Time / 3600) % 24 AS INTEGER) AS Hour, COUNT(*) AS Fraud_Count
+FROM transactions
+WHERE Class = 1
+GROUP BY Hour
+ORDER BY Hour ASC;
+  ```
+
+Next, data cleaning and exploratory analysis are performed in Python to ensure data quality and understand patterns.
+
+A machine learning pipeline is then built using a Random Forest classifier to detect fraudulent transactions. This pipeline includes data preprocessing, model training, evaluation, and threshold tuning to balance precision and recall.
+
+Finally, key insights and results are presented through an interactive Tableau dashboard, enabling easy exploration of fraud trends.
+
 
 ## Project Structure
 
@@ -50,6 +72,29 @@ Key components of the project:
 - `Data/`: Contains raw and processed datasets.
 
 
+## Methodology
+
+### Data Cleaning
+ * Removed duplicates and handled missing values in creditcard_subset.csv.
+
+### Exploratory Data Analysis (EDA)
+ * Calculated fraud percentage (~0.17%) and aggregated data by hour and amount.
+ * Analysed fraud prevalence: ~85 out of 50,000 transactions are fraudulent, consistent with the original Kaggle dataset.
+ * Examined amount distribution: Fraudulent transactions average €164.23, while legitimate ones average €87.25, indicating higher-value frauds.
+ * Explored time patterns: Fraud peaks vary by hour, with potential clustering visualised in the dashboard.
+ * Identified high-value transactions: High-spending users (e.g., >€500) contribute disproportionately to fraud, suggesting a need for targeted monitoring.
+
+### Machine Learning Approach
+ * Model: Random Forest Classifier trained to predict fraud based on transaction features.
+ * Evaluation: Used precision, recall, F1-score, and confusion matrix to assess model performance.
+ * Threshold Tuning: Explored the trade-off between precision and recall by adjusting the decision threshold, with a focus on maximising precision to minimise false alarms.
+
+### Visualisation
+- "Histogram of transaction amounts", 
+- "Line charts for hourly fraud frequency",
+- "Precision-Recall vs. Threshold Plot: Demonstrates the trade-off between catching more frauds and reducing false positives."
+- "Interactive Tableau dashboard with filters (Hour, Amount) and KPIs (Fraud Percentage, Total Fraud Cases)"
+
 ## Dashboard Preview
 ![Dashboard](Image/dashboard1.png)
 
@@ -57,29 +102,6 @@ Key components of the project:
 <br>
 Link to view: [HERE](https://public.tableau.com/app/profile/ivy.kepiro/viz/FraudDetectionOverview/Dashboard3)
 
-
-## Methodology
-
-Data Cleaning
- * Removed duplicates and handled missing values in creditcard_subset.csv.
-
-Exploratory Data Analysis
- * Calculated fraud percentage (~0.17%) and aggregated data by hour and amount.
- * Analysed fraud prevalence: ~85 out of 50,000 transactions are fraudulent, consistent with the original Kaggle dataset.
- * Examined amount distribution: Fraudulent transactions average €164.23, while legitimate ones average €87.25, indicating higher-value frauds.
- * Explored time patterns: Fraud peaks vary by hour, with potential clustering visualised in the dashboard.
- * Identified high-value transactions: High-spending users (e.g., >€500) contribute disproportionately to fraud, suggesting a need for targeted monitoring.
-
-Machine Learning Approach
- * Model: Random Forest Classifier trained to predict fraud based on transaction features.
- * Evaluation: Used precision, recall, F1-score, and confusion matrix to assess model performance.
- * Threshold Tuning: Explored the trade-off between precision and recall by adjusting the decision threshold, with a focus on maximising precision to minimise false alarms.
-
-Visualisation:
-- "Histogram of transaction amounts", 
-- "Line charts for hourly fraud frequency",
-- "Precision-Recall vs. Threshold Plot: Demonstrates the trade-off between catching more frauds and reducing false positives."
-- "Interactive Tableau dashboard with filters (Hour, Amount) and KPIs (Fraud Percentage, Total Fraud Cases)"
 
 ## Findings
 - **Fraud Prevalence**: Approximately 0.17% of transactions are fraudulent (~85 out of 50,000), consistent with the Kaggle dataset (the dataset is highly imbalanced).
