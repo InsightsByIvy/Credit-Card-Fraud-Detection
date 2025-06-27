@@ -5,11 +5,8 @@
 ## Table of Contents
 - [Project Overview](#overview)
 - [Dataset](#dataset)
-- [Dashboard Preview](dashboard-preview)
+- [Dashboard Preview](#dashboard-preview)
 - [Methodology](#methodology)
-- [Exploratory Data Analysis](#exploratory-data-analysis)
-- [Machine Learning Approach](#machine-learning-approach)
-- [Visualisations](#visualisations)
 - [Findings](#findings)
 - [How to Use](#how-to-use)
 
@@ -19,6 +16,8 @@ Credit card fraud is a significant challenge for financial institutions and cons
 
 This project explores the application of machine learning techniques to detect potentially fraudulent credit card transactions, using a real-world dataset of anonymised transaction records.
 The primary objectives include analysing transaction data to uncover patterns and anomalies associated with fraud. 
+
+To support this analysis, interactive data visualisations were created in Tableau, focusing on transaction patterns, fraud prevalence, and high-risk behaviors identified during exploratory data analysis.  This allows stakeholders to filter, drill down, and monitor fraud risk in an accessible and actionable format.
 
 Key components of the project:
  - Extracted and transformed data using SQL
@@ -42,7 +41,7 @@ Key components of the project:
     - `top_fraud_days.csv`: High-fraud days with amounts.
 
 ## Dashboard Preview
-![Dashboard](Imgage/dashboard.png)
+![Dashboard](Image/dashboard1.png)
 
 *Dashboard is a work in progress and may be updated.*
 <br>
@@ -51,7 +50,7 @@ Link to view: [HERE](https://public.tableau.com/app/profile/ivy.kepiro/viz/Fraud
 
 ## Methodology
 
-Dat Cleaning
+Data Cleaning
  * Removed duplicates and handled missing values in creditcard_subset.csv.
 
 Exploratory Data Analysis
@@ -64,21 +63,20 @@ Exploratory Data Analysis
 Machine Learning Approach
  * Model: Random Forest Classifier trained to predict fraud based on transaction features.
  * Evaluation: Used precision, recall, F1-score, and confusion matrix to assess model performance.
- * Threshold Tuning: Explored the trade-off between precision and recall by adjusting the decision threshold, with a focus on maximizing precision to minimize false alarms.
+ * Threshold Tuning: Explored the trade-off between precision and recall by adjusting the decision threshold, with a focus on maximising precision to minimise false alarms.
 
-Visualisation Created:
+Visualisation:
 - "Histogram of transaction amounts", 
 - "Line charts for hourly fraud frequency",
 - "Precision-Recall vs. Threshold Plot: Demonstrates the trade-off between catching more frauds and reducing false positives."
 - "Interactive Tableau dashboard with filters (Hour, Amount) and KPIs (Fraud Percentage, Total Fraud Cases)"
 
 ## Findings
-- **Fraud Prevalence**: Approximately 0.17% of transactions are fraudulent (~85 out of 50,000), consistent with the Kaggle dataset (The dataset is highly imbalanced).
+- **Fraud Prevalence**: Approximately 0.17% of transactions are fraudulent (~85 out of 50,000), consistent with the Kaggle dataset (the dataset is highly imbalanced).
 - **Amount Distribution**: Fraud transactions average €164.23, while legitimate ones average €87.25, indicating higher-value frauds.
 - **Time Patterns**: Fraud peaks vary by hour, with potential clustering (visualised in the dashboard).
 - **Insight**: High-spending users (e.g., >€500) contribute to a disproportionate share of fraud cases, suggesting that high-value transactions may require targeted monitoring.
-- Precision-Recall Trade-off: By increasing the decision threshold, the model achieves high precision (fewer false alarms) at the cost of lower recall (missing some frauds). This approach is suitable for minimizing customer disruption in production environments.
-
+- **Precision-Recall Trade-off**: By increasing the decision threshold, the model achieves high precision (fewer false alarms) at the cost of lower recall (missing some frauds). This approach is suitable for minimizing customer disruption in production environments.
 <br>
 
 ## How to Use
@@ -87,7 +85,10 @@ Visualisation Created:
 3. Run the Jupyter notebook in Notebook/machine_learning.ipynb to reproduce the analysis and model.
 4. Use the exported creditcard_with_predictions.csv for further visualisation in Tableau or other BI tools.
 
+<br>
+
 Thank you for reviewing my work! 🙂  
 Feel free to explore and reach out.
 
 
+[Back to Top](#)
