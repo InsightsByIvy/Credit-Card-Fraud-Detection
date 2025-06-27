@@ -1,4 +1,4 @@
-# Credit Card Fraud Detection: Scam and Legitimate Cases.
+# Credit Card Fraud Detection: Scam and Legitimate Cases
 
 ## Overview
 
