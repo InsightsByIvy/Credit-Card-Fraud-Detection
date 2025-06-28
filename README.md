@@ -67,9 +67,22 @@ Finally, key insights and results are presented through an interactive Tableau d
 
 ## Project Structure
 
-- `Notebooks/01_creditcard_fraud_preprocessing.ipynb`: Data cleaning, feature engineering, and preprocessing. Outputs a processed dataset for modeling.
-- `Notebooks/02_machine_learning.ipynb`: Exploratory data analysis, model building, evaluation, and visualisation.
-- `Data/`: Contains raw and processed datasets.
+```
+├── Data/
+│   ├── creditcard_subset.csv                       # Subset of the original Kaggle dataset, sampled due to large size
+|   |── creditcard_with_predictions.csv             # Final dataset with model predictions
+│   ├── fraud_by_hour.csv
+│   ├── amount_by_fraud.csv
+│   └── top_fraud_days.csv
+|── Image/
+├── Notebooks/
+│   ├── 01_creditcard_fraud_preprocessing.ipynb     # Data cleaning, feature engineering, preprocessing
+│   ├── 02_machine_learning.ipynb                   # Exploratory analysis, model training & evaluation
+│   └── 03_visualise_predictions.ipynb              # Prediction visualisation and analysis               
+├── requirements.txt                                # Python dependencies
+└── README.md                                       # Project documentation
+```
+
 
 
 ## Methodology
