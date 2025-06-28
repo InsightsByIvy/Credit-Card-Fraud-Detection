@@ -74,6 +74,8 @@ Finally, key insights and results are presented through an interactive Tableau d
 
 ## Methodology
 
+This project follows best practices for transparent, reproducible machine learning:
+
 ### Data Cleaning
  * Removed duplicates and handled missing values in creditcard_subset.csv.
 
@@ -104,11 +106,19 @@ Link to view: [HERE](https://public.tableau.com/app/profile/ivy.kepiro/viz/Fraud
 
 
 ## Findings
+
+  | Model     | Precision (Fraud) | Recall (Fraud) | F1 (Fraud) | Comments                              |
+  |-----------|-------------------|----------------|------------|---------------------------------------|
+  | Baseline  | 0.80              | 0.24           | 0.36       | High precision, low recall            |
+  | Pipeline  | 0.89              | 0.47           | 0.62       | Better balance, more frauds detected  |
+
+
+
 - **Fraud Prevalence**: Approximately 0.17% of transactions are fraudulent (~85 out of 50,000), consistent with the Kaggle dataset (the dataset is highly imbalanced).
 - **Amount Distribution**: Fraud transactions average €164.23, while legitimate ones average €87.25, indicating higher-value frauds.
 - **Time Patterns**: Fraud peaks vary by hour, with potential clustering (visualised in the dashboard).
 - **Insight**: High-spending users (e.g., >€500) contribute to a disproportionate share of fraud cases, suggesting that high-value transactions may require targeted monitoring.
-- **Precision-Recall Trade-off**: By increasing the decision threshold, the model achieves high precision (fewer false alarms) at the cost of lower recall (missing some frauds). This approach is suitable for minimizing customer disruption in production environments.
+- **Precision-Recall Trade-off**: By increasing the decision threshold, the model achieves high precision (fewer false alarms) at the cost of lower recall (missing some frauds). This approach is suitable for minimising customer disruption in production environments.
 <br>
 
 ## How to Use
